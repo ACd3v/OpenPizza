@@ -19,17 +19,17 @@ class CreateProductsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('customer_product', function (Blueprint $table) {
+        Schema::create('product_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id');
             $table->foreignId('product_id');
+            $table->foreignId('user_id');
             $table->timestamps();
 
-            $table->unique(['customer_id', 'product_id']);
+            $table->unique(['product_id', 'user_id']);
 
-            $table->foreign('customer_id')
+            $table->foreign('user_id')
                 ->references('id')
-                ->on('customers')
+                ->on('users')
                 ->onDelete('cascade');
 
             $table->foreign('product_id')
