@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function customers(){
-        return $this->belongsToMany(User::class);
+    public function orders(){
+        return $this->belongsToMany(Order::class);
     }
 }

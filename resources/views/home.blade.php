@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+{{--                    {{ __('You are logged in!') }}--}}
+                    <a class="btn btn-primary btn-lg btn-block" href="/orders/create" role="button">Crea un Ordine</a>
                 </div>
             </div>
         </div>
