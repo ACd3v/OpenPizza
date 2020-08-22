@@ -15,8 +15,10 @@
                     </div>
                     @endif
 
-                    <a class="btn btn-primary" href="{{ route('create.category') }}" role="button">Crea una
+                    <a class="btn btn-primary" href="{{ route('create.category') }}" role="button">Aggiungi una
                         Categoria</a>
+                    <a class="btn btn-primary" href="{{ route('create.product') }}" role="button">Aggiungi un
+                        Prodotto</a>
 
                     {{-- <a class="btn btn-primary btn-lg btn-block" href="/orders/create" role="button">Crea un Ordine</a> --}}
                 </div>
