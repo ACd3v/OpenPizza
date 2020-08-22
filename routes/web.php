@@ -11,4 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/orders/create', 'OrderController@create')->middleware('auth');
+Route::get('/orders/create', 'OrderController@create')->name('create_order');
+
+Route::post('/categories', 'CategoryController@store');
+Route::get('/categories/create', 'CategoryController@create')->name('create.category');

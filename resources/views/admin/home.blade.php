@@ -15,8 +15,10 @@
                     </div>
                     @endif
 
-                    {{--                    {{ __('You are logged in!') }}--}}
-                    <a class="btn btn-primary btn-lg btn-block" href="/orders/create" role="button">Crea un Ordine</a>
+                    <a class="btn btn-primary" href="{{ route('create.category') }}" role="button">Crea una
+                        Categoria</a>
+
+                    {{-- <a class="btn btn-primary btn-lg btn-block" href="/orders/create" role="button">Crea un Ordine</a> --}}
                 </div>
             </div>
         </div>
