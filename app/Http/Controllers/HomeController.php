@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Error;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // Prelevo l'id dell'utente loggato
+        $id = auth()->user()->id;
+
+        // Ricavo il ruolo che corrisponde a quell'id
+        $role = User::find($id)->role;
+
+        if ($role == 'admin') {
+            return view('admin.home');
+        }
+
+        if ($role == 'user') {
+            return view('user.home');
+        } else {
+            abort(404, 'Pagina non trovata');
+        }
     }
 }
