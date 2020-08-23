@@ -19,6 +19,8 @@
                         Categoria</a>
                     <a class="btn btn-primary" href="{{ route('create.product') }}" role="button">Aggiungi un
                         Prodotto</a>
+                    <a class="btn btn-primary" href="{{ route('create.ingredient') }}" role="button">Aggiungi un
+                        Ingrediente</a>
 
                     {{-- <a class="btn btn-primary btn-lg btn-block" href="/orders/create" role="button">Crea un Ordine</a> --}}
                 </div>

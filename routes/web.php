@@ -10,13 +10,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Home
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Orders
 Route::get('/orders/create', 'OrderController@create')->name('create_order');
 
+// Categories
 Route::post('/categories', 'CategoryController@store');
 Route::get('/categories/create', 'CategoryController@create')->name('create.category');
 
+// Products
 Route::post('/products', 'ProductController@store');
 Route::get('/products/create', 'ProductController@create')->name('create.product');
 
-Route::get('/products', 'CategoryController@index')->name('index.product');
+// Ingredient
+Route::post('/ingredients', 'IngredientController@store');
+Route::get('/ingredients/create', 'IngredientController@create')->name('create.ingredient');
