@@ -24,6 +24,6 @@ Route::get('/categories/create', 'CategoryController@create')->name('create.cate
 Route::post('/products', 'ProductController@store');
 Route::get('/products/create', 'ProductController@create')->name('create.product');
 
-// Ingredient
+// Ingredients
 Route::post('/ingredients', 'IngredientController@store');
 Route::get('/ingredients/create', 'IngredientController@create')->name('create.ingredient');

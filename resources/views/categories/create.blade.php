@@ -11,7 +11,12 @@
                 <div class="card-body">
                     <form action="/categories" method="POST">
                         @csrf
-                        <input class="form-control" type="text" placeholder="Inserisci il nome" name="name">
+                        <input class="form-control @error('name') is-invalid @enderror" type="text"
+                            placeholder="Inserisci il nome" name="name" value="{{ old('name') }}">
+
+                        @error('name')
+                        <p class="help invalid-feedback">{{ $message }}</p>
+                        @enderror
 
                         <div class="text-center mt-4">
                             <button type="submit" class="btn btn-success">Save</button>

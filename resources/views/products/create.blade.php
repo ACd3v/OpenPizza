@@ -14,7 +14,12 @@
                         @csrf
                         <div class="col-md-12 form-group">
                             <label class="ml-2" for="name">Nome</label>
-                            <input class="form-control" type="text" placeholder="Inserisci il nome" name="name">
+                            <input class="form-control @error('name') is-invalid @enderror" type="text"
+                                placeholder="Inserisci il nome" name="name" value="{{ old('name') }}">
+
+                            @error('name')
+                            <p class="help invalid-feedback">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="form-group">
