@@ -12,62 +12,37 @@
                     <form action="" method="post">
                         @csrf
 
-                        <div class="form-group">
-                            <label class="ml-4" for="name">Antipasti</label>
-                            <select class="col-md-12 selectpicker" multiple>
-                                <option value="php">PHP</option>
-                                <option value="react">React</option>
-                                <option value="jquery">JQuery</option>
-                                <option value="javascript">Javascript</option>
-                                <option value="angular">Angular</option>
-                                <option value="vue">Vue</option>
-                            </select>
-                        </div>
+                        @forelse ($categories as $category)
+
+                        @php
+                        // Cerco all'interno della collection contenente tutti i prodotti, quello con l'id della
+                        // categoria corrispondente all'id della categoria dentro il forelse attuale e lo trasformo
+                        // in array che conterrà solo i nomi dei prodotti
+                        $productArray = $products->where('category_id', $category->id)->pluck('name')->toArray();
+                        @endphp
 
                         <div class="form-group">
-                            <label class="ml-4" for="name">Pizze</label>
+                            <label class="ml-4" for="name">{{ $category->name }}</label>
                             <select class="col-md-12 selectpicker" multiple>
-                                <option value="php">PHP</option>
-                                <option value="react">React</option>
-                                <option value="jquery">JQuery</option>
-                                <option value="javascript">Javascript</option>
-                                <option value="angular">Angular</option>
-                                <option value="vue">Vue</option>
+                                <!-- Stampo per quanti sono i prodotti contenuti in quella categoria il nome dei prodotti -->
+                                @for ($i = 0; $i < count($productArray); $i++) <option value="php">{{$productArray[$i]}}
+                                    </option>
+                                    @endfor
                             </select>
                         </div>
+                        @empty
 
-                        <div class="form-group">
-                            <label class="ml-4" for="name">Pizze Speciali</label>
-                            <select class="col-md-12 selectpicker" multiple>
-                                <option value="php">PHP</option>
-                                <option value="react">React</option>
-                                <option value="jquery">JQuery</option>
-                                <option value="javascript">Javascript</option>
-                                <option value="angular">Angular</option>
-                                <option value="vue">Vue</option>
-                            </select>
+                        @endforelse
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success">Save</button>
                         </div>
-
-                        <div class="form-group">
-                            <label class="ml-4" for="name">Panini</label>
-                            <select class="col-md-12 selectpicker" multiple>
-                                <option value="php">PHP</option>
-                                <option value="react">React</option>
-                                <option value="jquery">JQuery</option>
-                                <option value="javascript">Javascript</option>
-                                <option value="angular">Angular</option>
-                                <option value="vue">Vue</option>
-                            </select>
-
-                            <div class="text-center mt-4">
-                                <button type="submit" class="btn btn-success">Save</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
 
