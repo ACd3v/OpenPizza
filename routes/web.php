@@ -14,6 +14,7 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Orders
+Route::post('/orders', 'OrderController@store');
 Route::get('/orders/create', 'OrderController@create')->name('create_order');
 
 // Categories

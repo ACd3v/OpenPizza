@@ -41,7 +41,13 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validateOrder();
+        dd(Request()->all());
+        // $order = new Order(request(['name']));
+        // $order->save();
+
+        // return redirect(route('home'));
     }
 
     /**
@@ -87,5 +93,16 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    /**
+     * @return array
+     */
+    protected function validateOrder(): array
+    {
+        return request()->validate([
+            'products_id' => "required",
+            'products_id.*' => "required|integer|max:1",
+        ]);
     }
 }
