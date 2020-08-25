@@ -6,11 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    public function users(){
+    protected $guarded = [];
+
+    public function users()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function products(){
+    public function products()
+    {
         return $this->belongsToMany(Product::class);
     }
 }
