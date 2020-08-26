@@ -23,7 +23,18 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="ml-4" for="name">Categorie</label>
+                            <label class="ml-4" for="name">Ingredienti</label>
+                            <select class="col-md-12 selectpicker" name="ingredients_id[] " multiple>
+                                @forelse ($ingredients as $ingredient)
+                                <option value="{{ $ingredient->id }}">{{ $ingredient->name }}</option>
+                                @empty
+                                <p>Nessun ingrediente disponibile</p>
+                                @endforelse
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="ml-4" for="name">Categoria</label>
                             <select class="col-md-12 selectpicker" name="category_id[]">
                                 @forelse ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>

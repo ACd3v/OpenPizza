@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\Ingredient;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,8 +17,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $ingredients = Ingredient::all();
 
-        return view('products.create', compact('categories'));
+        return view('products.create', compact('categories', 'ingredients'));
     }
 
     public function store()
@@ -30,6 +32,8 @@ class ProductController extends Controller
         $product = new Product(['category_id' => $category, 'name' => $name]);
         $product->save();
 
+        $product->ingredients()->attach(request('ingredients_id'));
+
         return redirect(route('home'));
     }
 
@@ -37,6 +41,7 @@ class ProductController extends Controller
     {
         return request()->validate([
             'category_id' => 'required',
+            'ingredients_id' => 'required',
             'name' => 'required'
         ]);
     }

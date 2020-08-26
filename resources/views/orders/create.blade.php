@@ -21,7 +21,6 @@
                         $productArray = $products->where('category_id', $category->id)->values();
                         @endphp
 
-                        {{-- {{ dd($productArray) }} --}}
                         <div class="form-group">
                             <label class="ml-4" for="name">{{ $category->name }}</label>
                             <select class="col-md-12 @error('products_id')is-invalid @enderror selectpicker" multiple
