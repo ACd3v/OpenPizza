@@ -8,7 +8,7 @@ class Order extends Model
 {
     protected $guarded = [];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

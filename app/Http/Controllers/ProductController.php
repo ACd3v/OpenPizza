@@ -41,7 +41,7 @@ class ProductController extends Controller
     {
         return request()->validate([
             'category_id' => 'required',
-            'ingredients_id' => 'required',
+            // 'ingredients_id' => 'required',
             'name' => 'required'
         ]);
     }

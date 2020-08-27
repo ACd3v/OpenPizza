@@ -14,7 +14,8 @@ Route::get('/', 'HomeController@index')->name('home')->middleware();
 
 // Orders
 Route::post('/orders', 'OrderController@store');
-Route::get('/orders/create', 'OrderController@create')->name('create_order');
+Route::get('/orders', 'OrderController@index')->name('index.order');
+Route::get('/orders/create', 'OrderController@create')->name('create.order');
 
 // Categories
 Route::post('/categories', 'CategoryController@store');

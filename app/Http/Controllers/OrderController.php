@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Order;
 use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -16,7 +17,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+
+        $orders = Order::latest()->get();
+        $users = User::latest()->get();
+
+        // dd($orders);
+        return view('orders.index', compact('orders', 'users'));
     }
 
     /**

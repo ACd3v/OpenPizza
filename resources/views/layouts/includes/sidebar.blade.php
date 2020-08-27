@@ -39,7 +39,7 @@
             </a>
             <div id="collapseOrders" class="collapse" aria-labelledby="headingOrders" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="buttons.html">Vedi tutti</a>
+                    <a class="collapse-item" href="{{ route('index.order') }}">Vedi tutti</a>
                 </div>
             </div>
         </li>
@@ -53,9 +53,9 @@
             </a>
             <div id="collapseCatalog" class="collapse" aria-labelledby="headingCatalog" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="buttons.html">Prodotti</a>
-                    <a class="collapse-item" href="buttons.html">Categorie</a>
-                    <a class="collapse-item" href="buttons.html">Ingredienti</a>
+                    <a class="collapse-item" href="{{ route('create.product') }}">Prodotti</a>
+                    <a class="collapse-item" href="{{ route('create.category') }}">Categorie</a>
+                    <a class="collapse-item" href="{{ route('create.ingredient') }}">Ingredienti</a>
                 </div>
             </div>
         </li>

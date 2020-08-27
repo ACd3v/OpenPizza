@@ -15,7 +15,7 @@
                     @endif
 
                     {{--                    {{ __('You are logged in!') }}--}}
-                    <a class="btn btn-primary btn-lg btn-block" href="{{ route('create_order') }}" role="button">Crea un
+                    <a class="btn btn-primary btn-lg btn-block" href="{{ route('create.order') }}" role="button">Crea un
                         Ordine</a>
                 </div>
             </div>
