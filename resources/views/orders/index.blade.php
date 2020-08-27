@@ -13,18 +13,19 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="ml-2 m-0 font-weight-bold text-primary">Ordini <span
+                    class="badge badge-primary">{{ $orders->count() }}</span></h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
                     <thead>
                         <tr>
                             <th>Id</th>
                             <th>Cliente</th>
                             <th>Data</th>
-                            {{-- <th>Age</th>
-                            <th>Start date</th>
+                            <th></th>
+                            {{-- <th>Start date</th>
                             <th>Salary</th> --}}
                         </tr>
                     </thead>
@@ -37,6 +38,14 @@
                                 {{ $users->find($order->user_id)->surname }}
                             </td>
                             <td>{{ $order->created_at }}</td>
+                            <td style="text-align: right;">
+                                <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                                    <span class="icon text-white-60">
+                                        <i class="fas fa-search-plus"></i>
+                                    </span>
+                                    <span class="text">Vedi</span>
+                                </a>
+                            </td>
                             {{-- <td>61</td>
                                 <td>2011/04/25</td>
                                 <td>$320,800</td> --}}
