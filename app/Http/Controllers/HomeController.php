@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Error;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,20 +26,25 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Prelevo l'id dell'utente loggato
-        $id = auth()->user()->id;
 
-        // Ricavo il ruolo che corrisponde a quell'id
-        $role = User::find($id)->role;
+        if (Auth::check()) {
+            // Prelevo l'id dell'utente loggato
+            $id = auth()->user()->id;
 
-        if ($role == 'admin') {
-            return view('admin.home');
-        }
+            // Ricavo il ruolo che corrisponde a quell'id
+            $role = User::find($id)->role;
 
-        if ($role == 'user') {
-            return view('user.home');
+            if ($role == 'admin') {
+                return view('admin.home');
+            }
+
+            if ($role == 'user') {
+                return view('user.home');
+            } else {
+                abort(404, 'Pagina non trovata');
+            }
         } else {
-            abort(404, 'Pagina non trovata');
+            return view('auth.login');
         }
     }
 }

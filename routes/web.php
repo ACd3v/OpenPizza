@@ -5,13 +5,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 
 // Home
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home')->middleware();
 
 // Orders
 Route::post('/orders', 'OrderController@store');
