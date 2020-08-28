@@ -19,5 +19,6 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('app-assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.14/css/bootstrap-select.css" />
 </head>

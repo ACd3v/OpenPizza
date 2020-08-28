@@ -92,5 +92,6 @@
 @include('layouts.includes.topbar')
 
 @yield('content')
+@yield('scripts')
 
 @include('layouts.includes.footer')

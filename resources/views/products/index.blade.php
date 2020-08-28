@@ -65,3 +65,9 @@
 </div>
 <!-- End of Main Content -->
 @endsection
+
+@section('scripts')
+<script type="text/javascript">
+    $('select').selectpicker();
+</script>
+@endsection

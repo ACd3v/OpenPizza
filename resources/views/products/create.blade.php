@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app_admin')
 
 @section('content')
 <div class="container">
@@ -9,7 +9,6 @@
                     <h3 class="text-center">Aggiungi un Prodotto</h2>
                 </div>
                 <div class="card-body">
-
                     <form action="/products" method="POST">
                         @csrf
                         <div class="col-md-12 form-group">

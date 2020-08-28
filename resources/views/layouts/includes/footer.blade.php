@@ -39,9 +39,14 @@
     </div>
 </div>
 
+
+<!-- Scripts -->
+
 <!-- Bootstrap core JavaScript-->
-<script src="{{ asset('app-assets/vendor/jquery/jquery.min.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{-- <script src="{{ asset('app-assets/vendor/jquery/jquery.min.js') }}"></script> --}}
 <script src="{{ asset('app-assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 <!-- Core plugin JavaScript-->
 <script src="{{ asset('app-assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
