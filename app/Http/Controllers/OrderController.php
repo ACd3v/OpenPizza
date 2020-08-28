@@ -29,6 +29,17 @@ class OrderController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Order $order)
+    {
+        return view('orders.show', compact('order'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -72,17 +83,6 @@ class OrderController extends Controller
         $order->products()->attach($productsArray);
 
         return redirect(route('home'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        return view('orders.show', compact('order'));
     }
 
     /**

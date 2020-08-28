@@ -25,6 +25,17 @@ class CategoryController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Category $category)
+    {
+        return view('categories.show', compact('category'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -38,10 +49,11 @@ class CategoryController extends Controller
     {
         $this->validateCategory();
 
-        $category = new Category(request(['name']));
-        $category->save();
+        Category::create([
+            'name' => request('name')
+        ]);
 
-        return redirect(route('home'));
+        return redirect(route('index.category'));
     }
 
     /**

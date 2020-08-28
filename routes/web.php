@@ -15,13 +15,14 @@ Route::get('/', 'HomeController@index')->name('home')->middleware();
 // Orders
 Route::post('/orders', 'OrderController@store');
 Route::get('/orders', 'OrderController@index')->name('index.order');
-Route::get('/orders/{order}', 'OrderController@show')->name('show.order');
 Route::get('/orders/create', 'OrderController@create')->name('create.order');
+Route::get('/orders/{order}', 'OrderController@show')->name('show.order');
 
 // Categories
 Route::post('/categories', 'CategoryController@store');
 Route::get('/categories', 'CategoryController@index')->name('index.category');
 Route::get('/categories/create', 'CategoryController@create')->name('create.category');
+Route::get('/categories/{category}', 'CategoryController@show')->name('show.category');
 
 // Products
 Route::post('/products', 'ProductController@store');
