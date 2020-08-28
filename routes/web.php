@@ -24,6 +24,7 @@ Route::get('/categories/create', 'CategoryController@create')->name('create.cate
 
 // Products
 Route::post('/products', 'ProductController@store');
+Route::get('/products', 'ProductController@index')->name('index.product');
 Route::get('/products/create', 'ProductController@create')->name('create.product');
 
 // Ingredients

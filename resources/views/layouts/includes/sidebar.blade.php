@@ -7,7 +7,7 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+                <i class="fas fa-pizza-slice"></i>
             </div>
             <div class="sidebar-brand-text mx-3">Pizzeria</div>
         </a>
@@ -53,7 +53,7 @@
             </a>
             <div id="collapseCatalog" class="collapse" aria-labelledby="headingCatalog" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="{{ route('create.product') }}">Prodotti</a>
+                    <a class="collapse-item" href="{{ route('index.product') }}">Prodotti</a>
                     <a class="collapse-item" href="{{ route('create.category') }}">Categorie</a>
                     <a class="collapse-item" href="{{ route('create.ingredient') }}">Ingredienti</a>
                 </div>

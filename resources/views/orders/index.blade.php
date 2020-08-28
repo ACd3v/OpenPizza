@@ -11,8 +11,8 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="ml-2 m-0 font-weight-bold text-primary">Ordini <span
-                    class="badge badge-primary">{{ $orders->count() }}</span></h6>
+            <h5 class="ml-2 m-0 font-weight-bold text-primary">Ordini <span
+                    class="badge badge-primary">{{ $orders->count() }}</span></h5>
         </div>
         <div class="card-body">
             <div class="table-responsive">
