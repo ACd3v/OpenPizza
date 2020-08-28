@@ -39,7 +39,8 @@
                             </td>
                             <td>{{ $order->created_at }}</td>
                             <td style="text-align: right;">
-                                <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                                <a href="{{ route('show.order', $order->id) }}"
+                                    class="btn btn-primary btn-icon-split btn-sm">
                                     <span class="icon text-white-60">
                                         <i class="fas fa-search-plus"></i>
                                     </span>
