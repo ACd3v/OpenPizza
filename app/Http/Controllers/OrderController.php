@@ -24,10 +24,8 @@ class OrderController extends Controller
     {
 
         $orders = Order::latest()->get();
-        $users = User::latest()->get();
 
-        // dd($orders);
-        return view('orders.index', compact('orders', 'users'));
+        return view('orders.index', compact('orders'));
     }
 
     /**

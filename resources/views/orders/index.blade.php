@@ -5,10 +5,8 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more
-        information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official
-            DataTables documentation</a>.</p>
+    <h1 class="h3 mb-2 text-gray-800">Elenco degli Ordini</h1>
+    <p class="mb-4">Di seguito puoi trovare l'elenco con tutti gli ordini.</p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -25,8 +23,6 @@
                             <th>Cliente</th>
                             <th>Data</th>
                             <th></th>
-                            {{-- <th>Start date</th>
-                            <th>Salary</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -34,8 +30,8 @@
                         <tr>
                             <td>{{ $order->id }}</td>
                             <td>
-                                {{ $users->find($order->user_id)->name }}
-                                {{ $users->find($order->user_id)->surname }}
+                                {{ $order->user->name }}
+                                {{ $order->user->surname }}
                             </td>
                             <td>{{ $order->created_at }}</td>
                             <td style="text-align: right;">
@@ -47,9 +43,6 @@
                                     <span class="text">Vedi</span>
                                 </a>
                             </td>
-                            {{-- <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td> --}}
                         </tr>
                         @empty
 
