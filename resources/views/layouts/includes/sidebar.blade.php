@@ -16,7 +16,7 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item @if(Request::is('/')) active @endif">
             <a class="nav-link" href="{{ route('home') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Pannello di controllo</span></a>
@@ -31,7 +31,7 @@
         </div>
 
         <!-- Nav Item - Orders Collapse Menu -->
-        <li class="nav-item">
+        <li class="nav-item @if(Request::is('orders')) active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
                 aria-expanded="true" aria-controls="collapseOrders">
                 <i class="fas fa-shopping-cart"></i>
@@ -45,7 +45,7 @@
         </li>
 
         <!-- Nav Item - Catalog Collapse Menu -->
-        <li class="nav-item">
+        <li class="nav-item @if(Request::is('products', 'categories', 'ingredients')) active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCatalog"
                 aria-expanded="true" aria-controls="collapseCatalog">
                 <i class="fas fa-store-alt"></i>
@@ -61,7 +61,7 @@
         </li>
 
         <!-- Nav Item - Customers Collapse Menu -->
-        <li class="nav-item">
+        <li class="nav-item @if(Request::is('customers')) active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCustomers"
                 aria-expanded="true" aria-controls="collapseCustomers">
                 <i class="fas fa-user"></i>
