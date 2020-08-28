@@ -20,6 +20,7 @@ Route::get('/orders/create', 'OrderController@create')->name('create.order');
 
 // Categories
 Route::post('/categories', 'CategoryController@store');
+Route::get('/categories', 'CategoryController@index')->name('index.category');
 Route::get('/categories/create', 'CategoryController@create')->name('create.category');
 
 // Products

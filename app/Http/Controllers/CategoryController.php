@@ -21,7 +21,7 @@ class CategoryController extends Controller
     {
         $categories = Category::latest()->get();
 
-        return view('index.product', compact($categories));
+        return view('categories.index', compact('categories'));
     }
 
     /**
