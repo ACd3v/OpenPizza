@@ -33,15 +33,12 @@ class ProductController extends Controller
     {
         $this->validateProduct();
 
-        $category = request('category_id')[0];
-        $name = request('name');
+        Product::create([
+            'category_id' => request('category_id')[0],
+            'name' => request('name')
+        ])->ingredients()->attach(request('ingredients_id'));
 
-        $product = new Product(['category_id' => $category, 'name' => $name]);
-        $product->save();
-
-        $product->ingredients()->attach(request('ingredients_id'));
-
-        return redirect(route('home'));
+        return redirect(route('index.product'));
     }
 
     protected function validateProduct(): array
