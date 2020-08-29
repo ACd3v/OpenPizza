@@ -10,7 +10,19 @@ Auth::routes();
 // });
 
 // Home
-Route::get('/', 'HomeController@index')->name('home')->middleware();
+Route::get('/', function () {
+    if (Auth::check()) {
+        if (auth()->user()->role == 'admin') {
+            return view('admin.home');
+        } elseif (auth()->user()->role == 'user') {
+            return view('user.home');
+        } else {
+            abort(404, 'Pagina non trovata');
+        }
+    } else {
+        return view('auth.login');
+    }
+})->name('home');
 
 // Orders
 Route::post('/orders', 'OrderController@store');
@@ -31,4 +43,9 @@ Route::get('/products/create', 'ProductController@create')->name('create.product
 
 // Ingredients
 Route::post('/ingredients', 'IngredientController@store');
+Route::get('/ingredients', 'IngredientController@index')->name('index.ingredient');
 Route::get('/ingredients/create', 'IngredientController@create')->name('create.ingredient');
+
+// Users
+Route::get('/users', 'UserController@index')->name('index.user');
+Route::get('/users/{user}', 'UserController@show')->name('show.user');

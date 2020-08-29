@@ -5,7 +5,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-pizza-slice"></i>
             </div>
@@ -55,7 +55,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('index.product') }}">Prodotti</a>
                     <a class="collapse-item" href="{{ route('index.category') }}">Categorie</a>
-                    <a class="collapse-item" href="{{ route('create.ingredient') }}">Ingredienti</a>
+                    <a class="collapse-item" href="{{ route('index.ingredient') }}">Ingredienti</a>
                 </div>
             </div>
         </li>

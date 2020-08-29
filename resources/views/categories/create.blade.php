@@ -28,9 +28,3 @@
 </div>
 </div>
 @endsection
-
-@section('scripts')
-<script type="text/javascript">
-    $('select').selectpicker();
-</script>
-@endsection

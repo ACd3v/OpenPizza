@@ -14,7 +14,9 @@ class IngredientController extends Controller
 
     public function index()
     {
-        //
+        $ingredients = Ingredient::all();
+
+        return view('ingredients.index', compact('ingredients'));
     }
 
     public function create()
@@ -30,7 +32,7 @@ class IngredientController extends Controller
             'name' => request('name')
         ]);
 
-        return redirect(route('home'));
+        return redirect(route('index.ingredient'));
     }
 
     protected function validateIngredient(): array

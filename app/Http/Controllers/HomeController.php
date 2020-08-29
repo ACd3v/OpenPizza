@@ -26,25 +26,5 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        if (Auth::check()) {
-            // Prelevo l'id dell'utente loggato
-            $id = auth()->user()->id;
-
-            // Ricavo il ruolo che corrisponde a quell'id
-            $role = User::find($id)->role;
-
-            if ($role == 'admin') {
-                return view('admin.home');
-            }
-
-            if ($role == 'user') {
-                return view('user.home');
-            } else {
-                abort(404, 'Pagina non trovata');
-            }
-        } else {
-            return view('auth.login');
-        }
     }
 }
