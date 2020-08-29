@@ -25,10 +25,10 @@ class IngredientController extends Controller
     public function store()
     {
         $this->validateIngredient();
-        $name = request('name');
 
-        $ingredient = new Ingredient(['name' => $name]);
-        $ingredient->save();
+        Ingredient::create([
+            'name' => request('name')
+        ]);
 
         return redirect(route('home'));
     }

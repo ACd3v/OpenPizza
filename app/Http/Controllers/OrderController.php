@@ -64,23 +64,9 @@ class OrderController extends Controller
 
         $this->validateOrder();
 
-        // Creo l'oggetto Ordine che conterrà solo l'id dell'utente che svolge l'ordine
-        $order = new Order(['user_id' => auth()->user()->id]);
-        $order->save();
-
-        // Prelevo i prodotti scelti nel form
-        $resultsArray = request(['products_id']);
-
-        // Creo un nuovo array vuoto dove inserirò solo gli id dei prodotti scelti
-        $productsArray = [];
-
-        // Il risultato della request erano 2 array uno dentro l'altro, con questo form estraggo solo gli id dei prodotti
-        for ($i = 0; $i < count($resultsArray['products_id']); $i++) {
-            array_push($productsArray, $resultsArray['products_id'][$i]);
-        }
-
-        // Aggiungo all'ordine i relativi prodotti nella pivot table
-        $order->products()->attach($productsArray);
+        Order::create([
+            'user_id' => auth()->user()->id
+        ])->products()->attach(request('products_id'));
 
         return redirect(route('home'));
     }
