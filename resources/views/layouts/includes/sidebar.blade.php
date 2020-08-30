@@ -61,7 +61,7 @@
         </li>
 
         <!-- Nav Item - Customers Collapse Menu -->
-        <li class="nav-item @if(Request::is('customers')) active @endif">
+        <li class="nav-item @if(Request::is('users')) active @endif">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCustomers"
                 aria-expanded="true" aria-controls="collapseCustomers">
                 <i class="fas fa-user"></i>
@@ -70,7 +70,7 @@
             <div id="collapseCustomers" class="collapse" aria-labelledby="headingCustomers"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="buttons.html">Vedi tutti</a>
+                    <a class="collapse-item" href="{{ route('index.user') }}">Vedi tutti</a>
                 </div>
             </div>
         </li>
