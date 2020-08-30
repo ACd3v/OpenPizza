@@ -42,6 +42,8 @@ Route::get('/categories/{category}', 'CategoryController@show')->name('show.cate
 Route::post('/products', 'ProductController@store');
 Route::get('/products', 'ProductController@index')->name('index.product');
 Route::get('/products/create', 'ProductController@create')->name('create.product');
+Route::get('/products/{product}/edit', 'ProductController@edit')->name('edit.product');
+Route::put('/products/{product}', 'ProductController@update');
 
 // Ingredients
 Route::post('/ingredients', 'IngredientController@store');

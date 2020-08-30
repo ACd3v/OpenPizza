@@ -37,10 +37,17 @@
                         @forelse ($products as $product)
                         <tr>
                             <td>{{ $product->id }}</td>
-                            <td>
-                                {{ $product->name }}
-                            </td>
+                            <td>{{ $product->name }}</td>
                             <td>{{ $product->created_at }}</td>
+                            <td style="text-align: right;">
+                                <a href="{{ route('edit.product', $product->id) }}"
+                                    class="btn btn-primary btn-icon-split btn-sm">
+                                    <span class="icon text-white-60">
+                                        <i class="fas fa-pen"></i>
+                                    </span>
+                                    <span class="text">Modifica</span>
+                                </a>
+                            </td>
                         </tr>
                         @empty
                         <p>Nessun elemento disponibile</p>

@@ -46,6 +46,14 @@ class ProductController extends Controller
         return redirect(route('index.product'));
     }
 
+    public function edit(Product $product)
+    {
+        $categories = Category::all();
+        $ingredients = Ingredient::all();
+
+        return view('products.edit', compact('product', 'categories', 'ingredients'));
+    }
+
     protected function validateProduct(): array
     {
         return request()->validate([
