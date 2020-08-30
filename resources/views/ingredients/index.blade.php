@@ -22,6 +22,7 @@
 
         </div>
         <div class="card-body">
+            @if ($ingredients->count() != 0)
             <div class="table-responsive">
                 <table class="table" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
                     <thead>
@@ -51,11 +52,14 @@
                             {{-- </td> --}}
                         </tr>
                         @empty
-
+                        <p>Nessun elemento disponibile</p>
                         @endforelse
                     </tbody>
                 </table>
             </div>
+            @else
+            <p>Nessun elemento disponibile</p>
+            @endif
         </div>
     </div>
 

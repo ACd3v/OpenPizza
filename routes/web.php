@@ -1,5 +1,7 @@
 <?php
 
+use App\Order;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -7,10 +9,13 @@ Auth::routes();
 
 // Home
 Route::get('/', function () {
+    $users = count(User::all());
+    $orders = count(Order::all());
+
     // if (Auth::check()) {
     if (isset(auth()->user()->role)) {
         if (auth()->user()->role == 'admin') {
-            return view('admin.home');
+            return view('admin.home', compact('users', 'orders'));
         } elseif (auth()->user()->role == 'user') {
             return view('users.home');
         } else {
