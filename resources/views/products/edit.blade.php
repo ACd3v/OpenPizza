@@ -28,9 +28,10 @@
                                             value="{{ $product->name }}">
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <label for="name" class="font-weight-bold text-dark">Categoria</label>
+                                        <label for="category" class="font-weight-bold text-dark">Categoria</label>
                                         <div class="form-group">
-                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <select class="form-control" id="exampleFormControlSelect1"
+                                                name="category_id">
                                                 @forelse ($categories as $category)
                                                 <option value="{{ $category->id }}" @if($category->id ==
                                                     $product->category_id) selected @endif>{{ $category->name }}
@@ -52,8 +53,8 @@
 
                                         @forelse ($ingredients as $ingredient)
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                                value="{{ $ingredient->id }}"
+                                            <input class="form-check-input" name="ingredients_id[]" type="checkbox"
+                                                id="inlineCheckbox1" value="{{ $ingredient->id }}"
                                                 @if($product->ingredients()->find($ingredient->id)) checked @endif>
                                             <label class="form-check-label"
                                                 for="inlineCheckbox1">{{ $ingredient->name }}</label>

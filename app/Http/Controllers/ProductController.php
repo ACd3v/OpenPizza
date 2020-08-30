@@ -54,6 +54,20 @@ class ProductController extends Controller
         return view('products.edit', compact('product', 'categories', 'ingredients'));
     }
 
+    public function update(Request $request, Product $product)
+    {
+        $this->validateProduct();
+        // dd($request->ingredients_id);
+
+        // $product->name = request('name');
+        // $product->category_id = request('category_id');
+
+        $product->update($request->except('ingredients_id'));
+        $product->ingredients()->sync($request->ingredients_id);
+
+        return redirect(route('index.product'));
+    }
+
     protected function validateProduct(): array
     {
         return request()->validate([

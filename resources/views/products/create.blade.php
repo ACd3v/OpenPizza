@@ -25,7 +25,7 @@
 
                     <div class="form-group">
                         <label class="ml-4" for="name">Ingredienti</label>
-                        <select class="col-md-12 selectpicker" name="ingredients_id[] " multiple>
+                        <select class="col-md-12 selectpicker" name="ingredients_id[]" multiple>
                             @forelse ($ingredients as $ingredient)
                             <option value="{{ $ingredient->id }}">{{ $ingredient->name }}</option>
                             @empty
