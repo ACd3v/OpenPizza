@@ -1,6 +1,8 @@
 <?php
 
+use App\Order;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 
 class OrderSeeder extends Seeder
 {
@@ -12,60 +14,24 @@ class OrderSeeder extends Seeder
     public function run()
     {
         DB::table('orders')->insert([
-            'user_id' => '1'
+            'user_id' => '1',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('order_product')->insert([
-            'order_id' => '1',
-            'product_id' => '8'
-        ]);
-
-        DB::table('order_product')->insert([
-            'order_id' => '1',
-            'product_id' => '4'
-        ]);
-
-        DB::table('order_product')->insert([
-            'order_id' => '1',
-            'product_id' => '2'
-        ]);
+        $order = Order::find(1)->products()->attach([8, 4, 2]);
 
         DB::table('orders')->insert([
-            'user_id' => '2'
+            'user_id' => '2',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('order_product')->insert([
-            'order_id' => '1',
-            'product_id' => '6'
-        ]);
-
-        DB::table('order_product')->insert([
-            'order_id' => '1',
-            'product_id' => '3'
-        ]);
-
-        DB::table('order_product')->insert([
-            'order_id' => '1',
-            'product_id' => '9'
-        ]);
+        $order = Order::find(2)->products()->attach(['6', '3', '9']);
 
         DB::table('orders')->insert([
-            'user_id' => '2'
+            'user_id' => '2',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('order_product')->insert([
-            'order_id' => '1',
-            'product_id' => '4'
-        ]);
-
-        DB::table('order_product')->insert([
-            'order_id' => '1',
-            'product_id' => '5'
-        ]);
-
-        DB::table('order_product')->insert([
-            'order_id' => '1',
-            'product_id' => '11'
-        ]);
+        $order = Order::find(3)->products()->attach(['4', '5', '11']);
     }
 }
