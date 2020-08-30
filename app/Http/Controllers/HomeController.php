@@ -26,5 +26,17 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // if (Auth::check()) {
+        //     if (auth()->user()->role == 'admin') {
+        //         return view('admin.home');
+        //     } elseif (auth()->user()->role == 'user') {
+        //         return view('user.home');
+        //     } else {
+        //         // return view('auth.login');
+        //         abort(404, 'Pagina non trovata');
+        //     }
+        // } else {
+        //     return view('auth.login');
+        // }
     }
 }

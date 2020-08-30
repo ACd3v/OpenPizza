@@ -5,17 +5,14 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
-
 // Home
 Route::get('/', function () {
-    if (Auth::check()) {
+    // if (Auth::check()) {
+    if (isset(auth()->user()->role)) {
         if (auth()->user()->role == 'admin') {
             return view('admin.home');
         } elseif (auth()->user()->role == 'user') {
-            return view('user.home');
+            return view('users.home');
         } else {
             abort(404, 'Pagina non trovata');
         }
