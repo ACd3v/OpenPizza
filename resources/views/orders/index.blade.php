@@ -43,6 +43,21 @@
                                     </span>
                                     <span class="text">Vedi</span>
                                 </a>
+                                <a class="btn btn-danger btn-icon-split btn-sm"
+                                    href="{{ route('delete.order', $order->id) }}"
+                                    onclick="event.preventDefault();
+                                                                                                    document.getElementById('delete-form-{{ $order->id }}').submit();">
+                                    <span class="icon text-white-60">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                    <span class="text">Elimina</span>
+                                </a>
+
+                                <form id="delete-form-{{ $order->id }}" action="{{ route('delete.order', $order->id) }}"
+                                    method="POST" style="display: none;">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
                             </td>
                         </tr>
                         @empty

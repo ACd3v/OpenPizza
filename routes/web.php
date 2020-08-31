@@ -31,6 +31,7 @@ Route::post('/orders', 'OrderController@store');
 Route::get('/orders', 'OrderController@index')->name('index.order');
 Route::get('/orders/create', 'OrderController@create')->name('create.order');
 Route::get('/orders/{order}', 'OrderController@show')->name('show.order');
+Route::delete('/orders/{order}/delete', 'OrderController@destroy')->name('delete.order');
 
 // Categories
 Route::post('/categories', 'CategoryController@store');
