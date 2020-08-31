@@ -1,61 +1,112 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+# OpenPizza
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<a href="#"><img src="demo/image1.png" title="demo" alt="demo"></a>
+<a href="#"><img src="demo/image2.png" title="demo" alt="demo"></a>
+<a href="#"><img src="demo/image3.png" title="demo" alt="demo"></a>
+<a href="#"><img src="demo/image4.png" title="demo" alt="demo"></a>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## About OpenPizza
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+OpenPizza nasce come soluzione Gratis e Open Source per gestire le Ordinazioni nelle Pizzerie.
+Come si può notare, il progetto è in uno stato embrionale, ma nei prossimi mesi cercherò di espanderne le funzionalità e migliorare ciò che è stato già scritto.
 
-## Learning Laravel
+Il progetto cerca di seguire tutte le Best Practices per facilitarne lo sviluppo e la manutenzione.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Built with
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-   [Laravel 7](https://laravel.com/) - The web framework
+-   [Bootstrap 4](https://getbootstrap.com/) - The front-end open source toolkit
+-   [SB Admin 2](https://github.com/StartBootstrap/startbootstrap-sb-admin-2) - The Bootstrap 4 admin theme
+-   [Bootstrap-select](https://developer.snapappointments.com/bootstrap-select/) - jQuery plugin with intuitive multiselection
+-   [jQuery](https://jquery.com/) - jQuery is a JavaScript library
+-   [Chart.js](https://www.chartjs.org/) - Simple yet flexible JavaScript charting
 
-## Laravel Sponsors
+## Get Started
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Per provare l'applicazione basterà seguire i seguenti passaggi:
 
-### Premium Partners
+1. Cambiare l'estensione del file .env
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+```shell
+mv .env.example .env
+```
 
-## Contributing
+2. Generare le chiave
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```shell
+php artisan key:generate
+```
 
-## Code of Conduct
+3. Inserire le credeziali del db
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```env
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=pizzeriadocker
+DB_USERNAME=admin
+DB_PASSWORD=password
+```
 
-## Security Vulnerabilities
+4. Spostarsi nella cartella "laradock"
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```shell
+cd laradock
+```
 
-## License
+5. Avviare il container
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```shell
+docker-compose up -d nginx mysql
+```
+
+6. Spostarsi su MySQL
+
+```shell
+docker exec -it laradock_mysql_1 bash
+```
+
+7. Entrare nel terminale
+
+```shell
+mysql -uroot -proot
+```
+
+8. Creare l'utente admin e assegnargli i privilegi
+
+```mysql
+CREATE USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
+CREATE USER 'admin'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+```
+
+9. Creare il database
+
+```mysql
+CREATE DATABASE IF NOT EXISTS `pizzeriadocker` COLLATE 'utf8_general_ci';
+GRANT ALL ON `pizzeriadocker`.* TO 'admin'@'%';
+FLUSH PRIVILEGES;
+```
+
+10. Entrare nell'Workspace
+
+```shell
+docker exec -it laradock_workspace_1 bash
+```
+
+11. Caricare i dati di demo preimpostati
+
+```shell
+php artisan db:seed
+```
+
+12. A questo punto basta recersi all'indirizzo: http://127.0.0.1/ per accedere alla demo.
+    Le credenziali per accedere alla Dashboard da Amministratore e per accedere alla parte dell'utente sono le seguenti:
+
+```
+Admin = email: "admin@admin.it" pass: "password"
+User = email: "user@user.it" pass: "password"
+```

@@ -9,7 +9,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-pizza-slice"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Pizzeria</div>
+            <div class="sidebar-brand-text mx-3">OpenPizza</div>
         </a>
 
         <!-- Divider -->
