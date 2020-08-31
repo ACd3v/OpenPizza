@@ -48,19 +48,6 @@
                                     </span>
                                     <span class="text">Modifica</span>
                                 </a>
-                                {{-- </td> --}}
-                                {{-- <td style="text-align: right; border-spacing: 0;"> --}}
-                                {{-- <form action="{{ route('delete.product', $product->id) }}" method="post"> --}}
-                                {{-- @csrf
-                                    @method('DELETE') --}}
-                                {{-- <a href="{{ route('delete.product', $product->id) }}"
-                                class="btn btn-danger btn-icon-split btn-sm" data-method="delete">
-                                <span class="icon text-white-60">
-                                    <i class="fas fa-trash-alt"></i>
-                                </span>
-                                <span class="text">Elimina</span>
-                                </a> --}}
-
                                 <a class="btn btn-danger btn-icon-split btn-sm"
                                     href="{{ route('delete.product', $product->id) }}" onclick="event.preventDefault();
                                     document.getElementById('delete-form-{{ $product->id }}').submit();">
@@ -76,7 +63,6 @@
                                     @csrf
                                     @method('DELETE')
                                 </form>
-                                {{-- </form> --}}
                             </td>
                         </tr>
                         @empty
@@ -96,10 +82,4 @@
 
 </div>
 <!-- End of Main Content -->
-@endsection
-
-@section('scripts')
-<script type="text/javascript">
-    $('select').selectpicker();
-</script>
 @endsection

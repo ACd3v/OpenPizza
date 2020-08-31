@@ -38,6 +38,7 @@ Route::get('/categories', 'CategoryController@index')->name('index.category');
 Route::get('/categories/create', 'CategoryController@create')->name('create.category');
 Route::get('/categories/{category}', 'CategoryController@show')->name('show.category');
 Route::get('/categories/{category}/edit', 'CategoryController@edit')->name('edit.category');
+Route::delete('/categories/{category}/delete', 'CategoryController@destroy')->name('delete.category');
 Route::put('/categories/{category}', 'CategoryController@update');
 
 // Products

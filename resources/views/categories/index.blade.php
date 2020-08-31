@@ -54,6 +54,22 @@
                                     </span>
                                     <span class="text">Modifica</span>
                                 </a>
+                                <a class="btn btn-danger btn-icon-split btn-sm"
+                                    href="{{ route('delete.category', $category->id) }}"
+                                    onclick="event.preventDefault();
+                                                                    document.getElementById('delete-form-{{ $category->id }}').submit();">
+                                    <span class="icon text-white-60">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </span>
+                                    <span class="text">Elimina</span>
+                                </a>
+
+                                <form id="delete-form-{{ $category->id }}"
+                                    action="{{ route('delete.category', $category->id) }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
                             </td>
                         </tr>
                         @empty
