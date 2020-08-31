@@ -50,6 +50,15 @@
                             <span class="text">Vedi</span>
                             </a> --}}
                             {{-- </td> --}}
+                            <td style="text-align: right;">
+                                <a href="{{ route('edit.ingredient', $ingredient->id) }}"
+                                    class="btn btn-primary btn-icon-split btn-sm">
+                                    <span class="icon text-white-60">
+                                        <i class="fas fa-pen"></i>
+                                    </span>
+                                    <span class="text">Modifica</span>
+                                </a>
+                            </td>
                         </tr>
                         @empty
                         <p>Nessun elemento disponibile</p>

@@ -68,6 +68,13 @@ class ProductController extends Controller
         return redirect(route('index.product'));
     }
 
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        return back();
+    }
+
     protected function validateProduct(): array
     {
         return request()->validate([

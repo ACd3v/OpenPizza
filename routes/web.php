@@ -45,12 +45,15 @@ Route::post('/products', 'ProductController@store');
 Route::get('/products', 'ProductController@index')->name('index.product');
 Route::get('/products/create', 'ProductController@create')->name('create.product');
 Route::get('/products/{product}/edit', 'ProductController@edit')->name('edit.product');
+Route::delete('/products/{product}/delete', 'ProductController@destroy')->name('delete.product');
 Route::put('/products/{product}', 'ProductController@update');
 
 // Ingredients
 Route::post('/ingredients', 'IngredientController@store');
 Route::get('/ingredients', 'IngredientController@index')->name('index.ingredient');
 Route::get('/ingredients/create', 'IngredientController@create')->name('create.ingredient');
+Route::get('/ingredients/{ingredient}/edit', 'IngredientController@edit')->name('edit.ingredient');
+Route::put('/ingredients/{ingredient}', 'IngredientController@update');
 
 // Users
 Route::get('/users', 'UserController@index')->name('index.user');

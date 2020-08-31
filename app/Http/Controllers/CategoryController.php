@@ -58,9 +58,6 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-        // $categories = Category::all();
-        // $ingredients = Ingredient::all();
-
         return view('categories.edit', compact('category'));
     }
 
