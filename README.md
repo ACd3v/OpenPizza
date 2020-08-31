@@ -5,7 +5,6 @@
 <a href="#"><img src="demo/image1.png" title="demo" alt="demo"></a>
 <a href="#"><img src="demo/image2.png" title="demo" alt="demo"></a>
 <a href="#"><img src="demo/image3.png" title="demo" alt="demo"></a>
-<a href="#"><img src="demo/image4.png" title="demo" alt="demo"></a>
 
 ## About OpenPizza
 
@@ -17,6 +16,7 @@ Il progetto cerca di seguire tutte le Best Practices per facilitarne lo sviluppo
 ## Built with
 
 -   [Laravel 7](https://laravel.com/) - The web framework
+-   [Laradock](https://laradock.io/) - Laradock is a full PHP development environment for Docker.
 -   [Bootstrap 4](https://getbootstrap.com/) - The front-end open source toolkit
 -   [SB Admin 2](https://github.com/StartBootstrap/startbootstrap-sb-admin-2) - The Bootstrap 4 admin theme
 -   [Bootstrap-select](https://developer.snapappointments.com/bootstrap-select/) - jQuery plugin with intuitive multiselection
@@ -24,6 +24,11 @@ Il progetto cerca di seguire tutte le Best Practices per facilitarne lo sviluppo
 -   [Chart.js](https://www.chartjs.org/) - Simple yet flexible JavaScript charting
 
 ## Get Started
+
+ATTENZIONE!
+
+-   La directory di partenza è la root del progetto
+-   Si da per scontato che sulla macchina sia già installato Docker
 
 Per provare l'applicazione basterà seguire i seguenti passaggi:
 
