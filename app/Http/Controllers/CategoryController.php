@@ -56,6 +56,24 @@ class CategoryController extends Controller
         return redirect(route('index.category'));
     }
 
+    public function edit(Category $category)
+    {
+        // $categories = Category::all();
+        // $ingredients = Ingredient::all();
+
+        return view('categories.edit', compact('category'));
+    }
+
+    public function update(Request $request, Category $category)
+    {
+        $this->validateCategory();
+        // dd($request->all());
+
+        $category->update(['name' => $request->name]);
+
+        return redirect(route('index.category'));
+    }
+
     /**
      * @return array
      */

@@ -41,11 +41,18 @@
                             <td>{{ $category->created_at }}</td>
                             <td style="text-align: right;">
                                 <a href="{{ route('show.category', $category->id) }}"
-                                    class="btn btn-primary btn-icon-split btn-sm">
+                                    class="btn btn-info btn-icon-split btn-sm">
                                     <span class="icon text-white-60">
                                         <i class="fas fa-search-plus"></i>
                                     </span>
                                     <span class="text">Vedi</span>
+                                </a>
+                                <a href="{{ route('edit.category', $category->id) }}"
+                                    class="btn btn-primary btn-icon-split btn-sm">
+                                    <span class="icon text-white-60">
+                                        <i class="fas fa-pen"></i>
+                                    </span>
+                                    <span class="text">Modifica</span>
                                 </a>
                             </td>
                         </tr>
