@@ -54,6 +54,7 @@ Route::post('/ingredients', 'IngredientController@store');
 Route::get('/ingredients', 'IngredientController@index')->name('index.ingredient');
 Route::get('/ingredients/create', 'IngredientController@create')->name('create.ingredient');
 Route::get('/ingredients/{ingredient}/edit', 'IngredientController@edit')->name('edit.ingredient');
+Route::delete('/ingredients/{ingredient}/delete', 'IngredientController@destroy')->name('delete.ingredient');
 Route::put('/ingredients/{ingredient}', 'IngredientController@update');
 
 // Users

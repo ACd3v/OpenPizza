@@ -50,6 +50,13 @@ class IngredientController extends Controller
         return redirect(route('index.ingredient'));
     }
 
+    public function destroy(Ingredient $ingredient)
+    {
+        $ingredient->delete();
+
+        return back();
+    }
+
     protected function validateIngredient(): array
     {
         return request()->validate([
