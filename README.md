@@ -8,10 +8,9 @@
 
 ## About OpenPizza
 
-OpenPizza nasce come soluzione Gratis e Open Source per gestire le Ordinazioni nelle Pizzerie.
-Come si può notare, il progetto è in uno stato embrionale, ma nei prossimi mesi cercherò di espanderne le funzionalità e migliorare ciò che è stato già scritto.
+OpenPizza was born as a Free and Open Source solution to manage Orders in Pizzerias during COVID-19.
 
-Il progetto cerca di seguire tutte le Best Practices per facilitarne lo sviluppo e la manutenzione.
+The project tries to follow all the Best Practices to facilitate their development and maintenance.
 
 ## Built with
 
@@ -25,26 +24,26 @@ Il progetto cerca di seguire tutte le Best Practices per facilitarne lo sviluppo
 
 ## Get Started
 
-ATTENZIONE!
+ATTENTION!
 
--   La directory di partenza è la root del progetto
--   Si da per scontato che sulla macchina sia già installato Docker
+-   The starting directory is the root of the project
+-   It's assumed that Docker is already installed on the machine
 
-Per provare l'applicazione basterà seguire i seguenti passaggi:
+To try the application just follow the steps below:
 
-1. Cambiare l'estensione del file .env
+1. Change the extension of the .env file
 
 ```shell
 mv .env.example .env
 ```
 
-2. Generare le chiave
+2. Generate the key
 
 ```shell
 php artisan key:generate
 ```
 
-3. Inserire le credeziali del db
+3. Enter the credentials of the db
 
 ```env
 DB_CONNECTION=mysql
@@ -55,31 +54,31 @@ DB_USERNAME=admin
 DB_PASSWORD=password
 ```
 
-4. Spostarsi nella cartella "laradock"
+4. Navigate to the "laradock" folder
 
 ```shell
 cd laradock
 ```
 
-5. Avviare il container
+5. Start the container
 
 ```shell
 docker-compose up -d nginx mysql
 ```
 
-6. Spostarsi su MySQL
+6. Navigate to MySQL
 
 ```shell
 docker exec -it laradock_mysql_1 bash
 ```
 
-7. Entrare nel terminale
+7. Enter the terminal
 
 ```shell
 mysql -uroot -proot
 ```
 
-8. Creare l'utente admin e assegnargli i privilegi
+8. Create the admin user and assign them privileges
 
 ```mysql
 CREATE USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
@@ -88,7 +87,7 @@ CREATE USER 'admin'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
 ```
 
-9. Creare il database
+9. Create the database
 
 ```mysql
 CREATE DATABASE IF NOT EXISTS `pizzeriadocker` COLLATE 'utf8_general_ci';
@@ -96,20 +95,20 @@ GRANT ALL ON `pizzeriadocker`.* TO 'admin'@'%';
 FLUSH PRIVILEGES;
 ```
 
-10. Entrare nell'Workspace
+10. Enter the Workspace
 
 ```shell
 docker exec -it laradock_workspace_1 bash
 ```
 
-11. Caricare i dati di demo preimpostati
+11. Load the preset demo data
 
 ```shell
 php artisan db:seed
 ```
 
-12. A questo punto basta recersi all'indirizzo: http://127.0.0.1/ per accedere alla demo.
-    Le credenziali per accedere alla Dashboard da Amministratore e per accedere alla parte dell'utente sono le seguenti:
+12. At this point, just go to: http://127.0.0.1/ to access the demo.
+    The credentials to access the Dashboard as Administrator and to access the User side are the following:
 
 ```
 Admin = email: "admin@admin.it" pass: "password"
